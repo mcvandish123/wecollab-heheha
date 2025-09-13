@@ -13,4 +13,5 @@ defineProps<Props>();
 </script>
 
 <template>
+    <div><!-- TODO: Replace with actual content --></div>
 </template>
