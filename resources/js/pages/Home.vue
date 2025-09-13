@@ -32,6 +32,7 @@
             </p>
             <a href="#" style="display: inline-block; background: #38613a; color: #fff; padding: 18px 40px; border-radius: 10px; font-size: 1.15rem; font-weight: 600; text-decoration: none; width: fit-content;">Learn More About Us</a>
           </div>
+        </div>
         <script setup lang="ts">
       </section>
 
