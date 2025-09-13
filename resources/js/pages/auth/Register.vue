@@ -1,5 +1,6 @@
 <template>
-    <AuthBase>
+    <div class="auth-bg auth-bg-override">
+        <AuthBase>
         <Head title="Register" />
 
         <!-- Logo above the title, same as Login.vue -->
@@ -11,7 +12,7 @@
             <p class="text-white text-center">Sign up</p>
         </div>
 
-        <div class="mx-auto max-w-md w-full bg-white shadow-lg p-8 rounded-2xl text-black mb-100">
+            <div class="mx-auto max-w-md w-full bg-white shadow-lg p-8 rounded-2xl text-black mb-100">
             <Form
                 method="post"
                 :action="route('register')"
@@ -72,8 +73,10 @@
                 </div>
             </Form>
         </div>
-    </AuthBase>
-</template>
+            </AuthBase>
+        </div>
+    </template>
+
 
 <script setup lang="ts">
 import InputError from '@/components/InputError.vue';
@@ -84,10 +87,20 @@ import { Label } from '@/components/ui/label';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { Form, Head } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
+import { onMounted, onUnmounted } from 'vue';
+
+onMounted(() => {
+    document.body.classList.add('auth-bg-override');
+});
+onUnmounted(() => {
+    document.body.classList.remove('auth-bg-override');
+});
 </script>
 
+<!-- The CSS for .auth-bg-override is already in app.css -->
 <style scoped>
-body, html {
-    background: #111 !important;
+.auth-bg {
+    min-height: 100vh;
+    width: 100%;
 }
 </style>
