@@ -33,7 +33,6 @@
             <a href="#" style="display: inline-block; background: #38613a; color: #fff; padding: 18px 40px; border-radius: 10px; font-size: 1.15rem; font-weight: 600; text-decoration: none; width: fit-content;">Learn More About Us</a>
           </div>
         </div>
-        <script setup lang="ts">
       </section>
 
       <!-- Branch Section -->
@@ -95,7 +94,30 @@
                   :style="{ opacity: currentIndex === 0 ? 0.4 : 1 }"
                 >
                   <span>&larr;</span>
-
+                </button>
+                <div style="display: flex; gap: 12px;">
+                  <span v-for="(review, idx) in reviews" :key="idx"
+                    :style="{
+                      width: '12px',
+                      height: '12px',
+                      borderRadius: '50%',
+                      background: idx === currentIndex ? '#495846' : '#d2d2d2',
+                      display: 'inline-block',
+                      cursor: 'pointer'
+                    }"
+                    @click="goTo(idx)">
+                  </span>
+                </div>
+                <button @click="next"
+                  style="background: none; border: none; font-size: 2rem; color: #495846; cursor: pointer; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; transition: background 0.2s;"
+                  :disabled="currentIndex === reviews.length - 1"
+                  :style="{ opacity: currentIndex === reviews.length - 1 ? 0.4 : 1 }"
+                >
+                  <span>&rarr;</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <!-- End Reviews Section -->
